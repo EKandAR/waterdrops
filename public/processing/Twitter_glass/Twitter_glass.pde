@@ -28,7 +28,7 @@ float xSLw =0; // splash level
 
 void setup () {
   frameRate(60);
-  size(800, 600);
+  size(1000, 600);
   dropL = loadImage ("/processing/data/Twitter glass drop large.png");
   dropS = loadImage ("/processing/data/Twitter glass drop small.png");
   levelH = loadImage ("/processing/data/Twitter glass water level high.png");
