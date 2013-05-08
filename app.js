@@ -3,6 +3,7 @@
  * Module dependencies.
  */
 
+var config = require('./config');
 require('coffee-script');
 
 var express = require('express')
@@ -30,6 +31,16 @@ app.configure('development', function(){
 // Routes
 require('./apps/twitter/routes')(app);
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app)
+app.io = require('socket.io').listen(server);
+
+server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+// environment variables
+
+process.env['TWITTER_CONSUMER_KEY'] = config.twitter_consumer_key;
+process.env['TWITTER_CONSUMER_SECRET'] = config.twitter_consumer_secret;
+process.env['TWITTER_ACCESS_TOKEN_KEY'] = config.twitter_access_token_key;
+process.env['TWITTER_ACCESS_TOKEN_SECRET'] = config.twitter_access_token_secret;
