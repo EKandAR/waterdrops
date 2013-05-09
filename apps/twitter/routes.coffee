@@ -1,12 +1,6 @@
 rest = require 'restler'
 twitter = require 'ntwitter'
 sys = require 'sys'
-twit = new twitter
-  consumer_key: process.env.TWITTER_CONSUMER_KEY
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-
 OAuth = require("oauth").OAuth
 oa = -> 
   new OAuth("https://twitter.com/oauth/request_token",
@@ -28,9 +22,18 @@ routes = (app) ->
   app.get '/drop', (req, res) ->
     access_token = req.query.access_token
     access_secret = req.query.access_token_secret
-    res.render "#{__dirname}/views/drop",
-      title: 'Till the Last Drop'
-      stylesheet: 'index'
+    twit = new twitter
+      consumer_key: process.env.TWITTER_CONSUMER_KEY
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET
+      access_token_key: access_token
+      access_token_secret: access_secret
+    twit.verifyCredentials (err, data) ->
+      twit.getHomeTimeline (err, data) ->
+        console.log "got home timeline"
+        app.io.sockets.emit "twitterConnected", { tweets: data }
+      res.render "#{__dirname}/views/drop",
+        title: 'Till the Last Drop'
+        stylesheet: 'index'
 
   # twitter oauth routes
   # #########################

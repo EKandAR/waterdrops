@@ -8,7 +8,7 @@ block head
       console.log(data);
       socket.emit('my other event', { my: 'data' });
     });
-    socket.on('tweets', function (data) {
+    socket.on('twitterConnected', function (data) {
       console.log(data);
     });
 
