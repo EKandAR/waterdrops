@@ -3,19 +3,22 @@
  * Module dependencies.
  */
 
-var config = require('./config');
 require('coffee-script');
 
 var express = require('express')
   , http = require('http')
-  , path = require('path');
-
-var app = express();
+  , path = require('path')
+//  , hbs = require('hbs')
+  , config = require('./config')
+  , helpers = require('./helpers')
+  , app = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+//  app.engine('hbs', hbs.__express);
+//  app.set('view engine', 'hbs');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -37,6 +40,33 @@ app.io = require('socket.io').listen(server);
 server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+// handlebars 
+
+//var blocks = {};
+//
+//hbs.registerHelper('extend', function(name, context) {
+//    var block = blocks[name];
+//    if (!block) {
+//        block = blocks[name] = [];
+//    }
+//
+//    block.push(context.fn(this)); // for older versions of handlebars, use block.push(context(this));
+//});
+//
+//hbs.registerHelper('block', function(name) {
+//    var val = (blocks[name] || []).join('\n');
+//
+//    // clear the block
+//    blocks[name] = [];
+//    return val;
+//});
+//
+//
+// Helpers
+
+// app.helpers(helpers.Helpers);
+// app.dynamicHelpers(helpers.DynamicHelpers);
 
 // environment variables
 
