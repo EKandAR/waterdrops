@@ -25,18 +25,12 @@ routes = (app) ->
       stylesheet: 'index'
       domain: req.headers.host
 
-  app.get '/drop', (req, res, io) ->
+  app.get '/drop', (req, res) ->
     access_token = req.query.access_token
     access_secret = req.query.access_token_secret
     res.render "#{__dirname}/views/drop",
       title: 'Till the Last Drop'
       stylesheet: 'index'
-#      console.log app.io
-#      app.io.sockets.on 'connection', (socket) ->
-#        console.log "sockets working"
-#        socket.emit 'news', { hello: 'world' } 
-#        socket.on 'my other event', (data) ->  
-#          console.log data 
 
   # twitter oauth routes
   # #########################
