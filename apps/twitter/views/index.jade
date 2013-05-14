@@ -1,8 +1,7 @@
 extends ../../../views/layout
 
 block content
-  h1= title
-  form(method='post',action='')
-    label(for='twitter') What's your twitter id?
-    input(type='text',name='twitter',id='twitter') 
-    | <a href="/auth/twitter">twitter twitter twitter</a>
+  #main-nav
+    h1= title
+    form(method='post',action='')
+      | <a href="/auth/twitter">twitter twitter twitter</a>

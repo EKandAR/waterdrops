@@ -15,7 +15,7 @@ routes = (app) ->
 
   app.get '/', (req, res) ->
     res.render "#{__dirname}/views/index",
-      title: 'Waterdrops'
+      title: 'Till the Last Drop'
       stylesheet: 'index'
       domain: req.headers.host
 
@@ -30,7 +30,7 @@ routes = (app) ->
     twit.verifyCredentials (err, data) ->
       twit.getHomeTimeline (err, data) ->
         console.log "got home timeline"
-        app.io.sockets.emit "twitterConnected", { tweets: data }
+        #app.io.sockets.emit "twitterConnected", { tweets: data }
       res.render "#{__dirname}/views/drop",
         title: 'Till the Last Drop'
         stylesheet: 'index'
@@ -58,12 +58,5 @@ routes = (app) ->
           res.redirect '/drop?access_token=' + oauth_access_token + '&access_token_secret=' + oauth_access_token_secret
     else
       res.redirect "/" # Redirect to login page
-     
-  app.post '/tweet', (req, res) ->
-    rest.get(TWITTERURL+req.body.query)
-    .on 'complete', (result, response) ->
-      console.log "SUCESS!"
-      data = parser.parse_search(result, console.log)
-      res.render "#{__dirname}/views/result"
 
 module.exports = routes

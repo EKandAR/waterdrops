@@ -3,10 +3,13 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(type='text/javascript', src='/js/processing.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+    script(type='text/javascript', src='/js/paper.js')
+    script(type='text/paperscript', canvas='canvas', src='/js/waterglass.pjs', id='script')
+    // script(type='text/javascript', src='/js/processing.js')
     block head
 
   body
     #msg
-    // canvas(data-processing-sources='/processing/Twitter_glass.pde')
+    canvas(id='canvas', width='800', height='600')
     block content

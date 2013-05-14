@@ -1,4 +1,4 @@
 waterdrops
 ==========
 
-Project for BHQFU collaboration class
+Project for BHQFU collaboration show
