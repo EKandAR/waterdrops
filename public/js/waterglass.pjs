@@ -1,0 +1,33 @@
+var glassStrokeColor = '#151515';
+
+function init(){
+    canvas = document.getElementById("canvas");
+    canvas.width = document.width;
+    canvas.height = document.height;
+    canvasW = canvas.width;
+    canvasH = canvas.height;
+
+  var glassTop = new Path.Ellipse({
+    point: [320, 180],
+    size: [270, 60],
+    strokeColor: glassStrokeColor
+  });
+  var glassBottom = new Path.Ellipse({
+    point: [365, 520],
+    size: [180, 40],
+    strokeColor: glassStrokeColor
+  });
+
+  var leftPath = new Path.Line({
+    from: [320, 210],
+    to: [365, 540],
+    strokeColor: glassStrokeColor
+  });
+  var rghtPath = new Path.Line({
+    from: [590, 210],
+    to: [545, 540],
+    strokeColor: glassStrokeColor
+  });
+}
+
+init();

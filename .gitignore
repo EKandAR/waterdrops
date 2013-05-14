@@ -9,6 +9,7 @@ lib-cov
 *.DS_Store
 config.js
 node_modules/
+.sass-cache
 
 pids
 logs
