@@ -35,17 +35,17 @@ app.configure('development', function(){
 require('./apps/twitter/routes')(app);
 
 var server = http.createServer(app);
-// app.io = require('socket.io').listen(server);
+ app.io = require('socket.io').listen(server);
 
-// app.io.sockets.on('connection', function(socket) {
-//   console.log("sockets working");
-//   socket.emit('news', {
-//     hello: 'world'
-//   });
-//   socket.on('my other event', function(data) {
-//     console.log(data);
-//   });
-// });
+ app.io.sockets.on('connection', function(socket) {
+   console.log("sockets working");
+   socket.emit('news', {
+     hello: 'world'
+   });
+   socket.on('my other event', function(data) {
+     console.log(data);
+   });
+ });
 
 server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

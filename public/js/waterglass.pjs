@@ -1,4 +1,6 @@
 var glassStrokeColor = '#151515';
+var dropletStrokeColor = '#cccccc';
+var dropletFillColor = '#00ffff';
 
 function init(){
     canvas = document.getElementById("canvas");
@@ -23,11 +25,40 @@ function init(){
     to: [365, 540],
     strokeColor: glassStrokeColor
   });
-  var rghtPath = new Path.Line({
+  var rightPath = new Path.Line({
     from: [590, 210],
     to: [545, 540],
     strokeColor: glassStrokeColor
   });
+
+  var droplet = new Path.Circle({ 
+    center: [455, 30],
+    radius: 25,
+    fillColor: dropletFillColor,
+    strokeColor: dropletStrokeColor
+  });
+
+  var dest = Point.random() * view.size;
+  function onFrame(event) { 
+    var vector = dest - droplet.position;
+
+    droplet.position += vector / 30;
+
+    if (vector.length < 5) {
+      destination = Point.random() * view.size;
+    } 
+  }
+
 }
 
+this.move = function() {
+  console.log('view'+view);
+  console.log(droplet);
+  if (droplet===undefined) {
+    return false
+  }
+
+};
+
 init();
+paper.install(window.paperscript);

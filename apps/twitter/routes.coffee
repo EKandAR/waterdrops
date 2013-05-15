@@ -30,7 +30,7 @@ routes = (app) ->
     twit.verifyCredentials (err, data) ->
       twit.getHomeTimeline (err, data) ->
         console.log "got home timeline"
-        #app.io.sockets.emit "twitterConnected", { tweets: data }
+        app.io.sockets.emit "twitterConnected", { tweets: data }
       res.render "#{__dirname}/views/drop",
         title: 'Till the Last Drop'
         stylesheet: 'index'
