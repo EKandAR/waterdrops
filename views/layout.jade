@@ -4,16 +4,20 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
-    // script(type='text/javascript', src='/js/paper.js')
-    // script(type='text/javascript', src='/js/raphael.js')    
-    // script(type='text/paperscript', canvas='canvas', src='/js/waterglass.js')
-    // script(type='text/javascript', src='/js/processing.js')
+    script(type='text/javascript', src='/js/script.js')
+    script(type='text/javascript', src='/js/raphael.js')    
     block head
 
   body
-    #water-container
-    #glass
-      #water
+    #waters
+      #player-one.player-blocking
+        .water-container
+          .glass
+            .water#lol
+      #player-two.player-blocking
+        .water-container
+          .glass
+            .water
     #msg
     block content    
 
