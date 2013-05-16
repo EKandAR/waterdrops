@@ -4,17 +4,25 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
-    // script(type='text/javascript', src='/js/paper.js')
-    // script(type='text/javascript', src='/js/raphael.js')    
-    // script(type='text/paperscript', canvas='canvas', src='/js/waterglass.js')
-    // script(type='text/javascript', src='/js/processing.js')
+    // script(type='text/javascript', src='/js/script.js')
+    script(type='text/javascript', src='/js/raphael.js')    
     block head
 
   body
-    #water-container
-    #glass
-      #water
+    #waters
+      #player-one.player-blocking
+        #p1-glass.glass-min
+          .glass-container.player-one
+            .glass.player-one
+              .water.player-one
+      #player-two.player-blocking
+        #p2-glass.glass-min
+          .glass-container.player-two
+            .glass.player-two
+              .water.player-two
+
     #msg
     block content    
+    script(type='text/javascript', src='/js/script.js')    
 
 

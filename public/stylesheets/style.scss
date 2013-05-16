@@ -25,11 +25,45 @@ a {
   color: #00B7FF;
 }
 
-#water-container {
+#waters {
+  margin: 200px 0 0 0;
+}
+.player-blocking {
+  display: inline-block;
+  margin: 0 0 0 100px;
+}
+.glass {
+  display: inline-block;
+  background-image: url("/img/glass-min-fill.png");   
+  background-repeat: no-repeat;
+  width: 315px;
+  height: 460px;
+}
+
+.water {
+    background-image: url("/img/water-level-min.png");   
+    background-repeat: no-repeat;
+    //opacity: .65;
+    display: block;
+    margin-top: 389px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 155px;
+    height: 100px;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+/* OLD STUFF
+.water-container {
     background: rgba( 0, 0, 0, 0.10);
-    margin-left:auto;
-    margin-right:auto;
-    width: 300px;
+    margin-left: 75px;
+    display: inline-block;
+    width: 150px;
     border-left: 1px solid #bbb;
     border-right: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
@@ -42,23 +76,24 @@ a {
     padding-bottom: 30px;
     padding-top: 5px;
 }
-#glass {
+.glass {
     background: rgba( 255, 255, 255, 0.50);
     border: 1px solid #bbb;
     border-top: 1px solid #eee;  
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    width: 300px;
+    width: 150px;
     height: 400px;
     position: relative;
 }
-#water {
-    background-image: url("/img/waves.png");   
+.water {
+    background-image: url("/img/waves2.png");   
+    opacity: .65;
     background-position: top right;
     position: absolute;
     bottom: 0px;
-    width: 300px;
+    width: 150px;
     height: 100px;
     -webkit-transition: all 3s ease-out;
     -moz-transition: all 3s ease-out;
@@ -68,7 +103,7 @@ a {
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
-#glass:hover #water {
+.glass:hover .water {
     height: 350px;
     background-position: top left;
     -webkit-transition: all 3s ease-out;
@@ -76,3 +111,20 @@ a {
     -o-transition: all 3s ease-out;
     transition: all 3s ease-out;
 }
+
+.photo-water {
+    background-image: url("/img/waves2.png");   
+    opacity: .65;
+    background-position: top right;
+    position: absolute;
+    bottom: 0px;
+    width: 150px;
+    height: 100px;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+} */

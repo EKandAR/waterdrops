@@ -10,7 +10,6 @@ var express = require('express')
   , path = require('path')
 //  , hbs = require('hbs')
   , config = require('./config')
-  , helpers = require('./helpers')
   , app = express();
 
 app.configure(function(){
@@ -35,9 +34,9 @@ app.configure('development', function(){
 require('./apps/twitter/routes')(app);
 
 var server = http.createServer(app);
- app.io = require('socket.io').listen(server);
+ GLOBAL.io = require('socket.io').listen(server);
 
- app.io.sockets.on('connection', function(socket) {
+ GLOBAL.io.sockets.on('connection', function(socket) {
    console.log("sockets working");
    socket.emit('news', {
      hello: 'world'
