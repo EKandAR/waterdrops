@@ -10,7 +10,6 @@ var express = require('express')
   , path = require('path')
 //  , hbs = require('hbs')
   , config = require('./config')
-  , helpers = require('./helpers')
   , app = express();
 
 app.configure(function(){

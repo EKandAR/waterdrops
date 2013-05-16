@@ -4,21 +4,21 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
-    script(type='text/javascript', src='/js/script.js')
+    // script(type='text/javascript', src='/js/script.js')
     script(type='text/javascript', src='/js/raphael.js')    
     block head
 
   body
     #waters
       #player-one.player-blocking
-        .water-container
-          .glass
-            .water#lol
+        #p1-glass.glass-min
+          img.glass(src='/img/glass-min-fill.png')
       #player-two.player-blocking
-        .water-container
-          .glass
-            .water
+        #p2-glass.glass-min
+          img.glass(src='/img/glass-min-fill.png')
+
     #msg
     block content    
+    script(type='text/javascript', src='/js/glass_raphael.js')    
 
 

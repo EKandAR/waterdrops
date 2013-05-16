@@ -26,11 +26,16 @@ a {
 }
 
 #waters {
-  margin: 200px 0 0 200px;
+  margin: 200px 0 0 0;
 }
 .player-blocking {
-  display: inline;
+  display: inline-block;
+  margin: 0 0 0 100px;
 }
+.glass {
+  display: inline-block;
+}
+/* OLD STUFF
 .water-container {
     background: rgba( 0, 0, 0, 0.10);
     margin-left: 75px;
@@ -83,3 +88,20 @@ a {
     -o-transition: all 3s ease-out;
     transition: all 3s ease-out;
 }
+
+.photo-water {
+    background-image: url("/img/waves2.png");   
+    opacity: .65;
+    background-position: top right;
+    position: absolute;
+    bottom: 0px;
+    width: 150px;
+    height: 100px;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    -o-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+} */
