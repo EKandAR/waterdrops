@@ -1,16 +1,16 @@
 extends ../../../views/layout
 
 block head
-//  script(type='text/javascript', src="/socket.io/socket.io.js")
-//  script(type='text/javascript')
-//    var socket = io.connect('http://localhost');
-//    socket.on('news', function (data) {
-//      console.log(data);
-//      socket.emit('my other event', { my: 'data' });
-//    });
-//    socket.on('twitterConnected', function (data) {
-//      // console.log(data);
-//    });
+  script(type='text/javascript', src="/socket.io/socket.io.js")
+  script(type='text/javascript')
+    var socket = io.connect('http://localhost');
+    socket.on('news', function (data) {
+      console.log(data);
+      socket.emit('my other event', { my: 'data' });
+    });
+    socket.on('twitterConnected', function (data) {
+      // console.log(data);
+    });
 
 block content
   #main-nav

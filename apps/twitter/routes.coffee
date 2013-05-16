@@ -40,9 +40,8 @@ routes = (app) ->
     twitOne.verifyCredentials (err, data) ->
       GLOBAL.playerOne = data
       GLOBAL.need_p1 = false
-      twitOne.getHomeTimeline (err, data) ->
-        console.log "got home timeline"
-        app.io.sockets.emit "twitterConnected", { tweets: data }
+      client.hset data.screen_name, "token", access_token, redis.print
+      client.hset data.screen_name, "secret", access_secret, redis.print
       res.render "#{__dirname}/views/need_p2",
         title: 'Till the Last Drop'
         stylesheet: 'index'
@@ -59,12 +58,24 @@ routes = (app) ->
       GLOBAL.playerTwo = data
       twitTwo.getHomeTimeline (err, data) ->
         console.log "got home timeline player 2"
-        app.io.sockets.emit "twitterConnected", { tweets: data }
+        GLOBAL.io.sockets.emit "twitterConnected", { tweets: data }
+        p2Tweets = data
       res.render "#{__dirname}/views/game",
         title: 'Till the Last Drop'
         stylesheet: 'index'
         playerOneName: GLOBAL.playerOne.screen_name
         playerTwoName: GLOBAL.playerTwo.screen_name
+      client.hgetall GLOBAL.playerOne.screen_name, (err, reply) ->
+        twitP1 = new twitter
+          consumer_key: process.env.TWITTER_CONSUMER_KEY
+          consumer_secret: process.env.TWITTER_CONSUMER_SECRET
+          access_token_key: reply.token
+          access_token_secret: reply.secret
+        twitP1.verifyCredentials (err, data) ->
+          twitP1.getHomeTimeline (err, data) ->
+            console.log "got home timeline player 1"
+            p1Tweets = data
+            GLOBAL.io.sockets.emit "twitterConnected", { tweets: data }
 
   # twitter oauth routes
   # #########################
@@ -80,7 +91,7 @@ routes = (app) ->
         else
           client.hset "p2", "oauth_token", oauthToken, redis.print
           client.hset "p2", "oauth_secret", oauthTokenSecret, redis.print
-          res.redirect "https://twitter.com/oauth/authorize?oauth_token=" + oauthToken + "&screen_name=broscopes"
+          res.redirect "https://twitter.com/oauth/authorize?force_login=true&oauth_token=" + oauthToken + "&screen_name="
 
   app.get "/auth/twitter/callback", (req, res, next) ->
     if req.query.oauth_verifier.length != 0
