@@ -27,7 +27,28 @@ a {
   margin: 0 0 0 100px; }
 
 .glass {
-  display: inline-block; }
+  display: inline-block;
+  background-image: url("/img/glass-min-fill.png");
+  background-repeat: no-repeat;
+  width: 315px;
+  height: 460px; }
+
+.water {
+  background-image: url("/img/water-level-min.png");
+  background-repeat: no-repeat;
+  display: block;
+  margin-top: 389px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 155px;
+  height: 100px;
+  -webkit-transition: all 3s ease-out;
+  -moz-transition: all 3s ease-out;
+  -o-transition: all 3s ease-out;
+  transition: all 3s ease-out;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
 
 /* OLD STUFF
 .water-container {
