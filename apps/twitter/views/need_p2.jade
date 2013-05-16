@@ -9,8 +9,12 @@ block head
       socket.emit('my other event', { my: 'data' });
     });
     socket.on('twitterConnected', function (data) {
-      console.log(data);
+      // console.log(data);
     });
 
 block content
-  h1= title
+  #main-nav
+    h1= title
+    h1= "Welcome " + playerOneName + "!!!"
+    form(method='post',action='')
+      | <a href="/auth/twitter">Player 2 Login</a>
