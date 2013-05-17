@@ -5,15 +5,39 @@ block head
   script(type='text/javascript', src="/js/game.js")
   script(type='text/javascript', src="/socket.io/socket.io.js")
   script(type='text/javascript')
-    var socket = io.connect('http://localhost');
-    socket.on('twitterConnected', function (data) {
-      // console.log(data);
+    var socket = io.connect('http://localhost')
+      , p1Ready = false
+      , p2Ready = false
+      , window.go = false
+      , gameStart = false;
+
+    socket.on('playerOneReady', function (data) {
+      p1Ready = true;
+      if (p1Ready && p2Ready && window.go) {
+        gameStart = true; 
+       };
+    });
+    socket.on('playerTwoReady', function (data) {
+      p2Ready = true;
+      if (p1Ready && p2Ready && window.go) {
+        gameStart = true; 
+       };
     });
     socket.on('playerOneTweet', function (data) {
-      playerOneDrop(); 
+      if (p1Ready && p2Ready && window.go) {
+        gameStart = true; 
+       };
+      // if (gameStart) {
+      //playerOneDrop(); 
+      // }
     });
     socket.on('playerTwoTweet', function (data) {
-      playerTwoDrop(); 
+      if (p1Ready && p2Ready && window.go) {
+        gameStart = true; 
+       };
+      // if (gameStart) {
+      //playerTwoDrop(); 
+      // }
     });
 
 block content

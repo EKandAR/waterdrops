@@ -1,23 +1,21 @@
+SOUNDS
 
+- Need waiting graphics/ideas
 
-- Water level must rise // DONE
-
+- Customize for installation setup
 - Game must reset on complete
+- Y cord must change dependent on glass fill
+- Overlfow animation needed
+- Game end text
 
 - Parse tweets // done via stream API
+- Water level must rise // DONE
 
-- Overlfow animation needed
 
 - Drops must fall in P1 or P2 cup // done, may need X cord tweaking
-- Randomize X coord on drop falling
+- Randomize X coord on drop falling //done
 
 - Two players must be able to log into Twitter // done
 - Drop fall must be triggered by tweet // done
 
 - Game start text // done
-
-- Game end text
-
-- Need waiting graphics/ideas
-
-SOUNDS
