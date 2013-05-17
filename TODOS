@@ -4,17 +4,19 @@
 
 - Game must reset on complete
 
-- Parse tweets
+- Parse tweets // done via stream API
 
 - Overlfow animation needed
 
-- Drops must fall in P1 or P2 cup
+- Drops must fall in P1 or P2 cup // done, may need X cord tweaking
 - Randomize X coord on drop falling
 
-- Two players must be able to log into Twitter
-- Drop fall must be triggered by tweet
+- Two players must be able to log into Twitter // done
+- Drop fall must be triggered by tweet // done
 
-- Game start and end need text
+- Game start text // done
+
+- Game end text
 
 - Need waiting graphics/ideas
 

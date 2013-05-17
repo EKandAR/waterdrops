@@ -63,7 +63,7 @@ routes = (app) ->
           console.log "end"
         stream.on 'destroy', (response) ->
           console.log "destroyed"
-        setTimeout stream.destroy, 600000
+        setTimeout stream.destroy, 900000
       res.render "#{__dirname}/views/game",
         title: 'Till the Last Drop'
         stylesheet: 'index'
@@ -84,7 +84,7 @@ routes = (app) ->
               console.log "end"
             stream.on 'destroy', (response) ->
               console.log "destroyed"
-            setTimeout stream.destroy, 600000      
+            setTimeout stream.destroy, 900000
 
 # for REST API
 #          twitP1.getHomeTimeline (err, data) ->
