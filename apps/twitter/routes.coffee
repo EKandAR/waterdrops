@@ -1,4 +1,3 @@
-rest = require 'restler'
 redis = require 'redis'
 client = redis.createClient()
 

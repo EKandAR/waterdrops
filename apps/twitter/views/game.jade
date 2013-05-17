@@ -9,6 +9,12 @@ block head
     socket.on('twitterConnected', function (data) {
       // console.log(data);
     });
+    socket.on('playerOneTweet', function (data) {
+      playerOneDrop(); 
+    });
+    socket.on('playerTwoTweet', function (data) {
+      playerTwoDrop(); 
+    });
 
 block content
   #main-nav
