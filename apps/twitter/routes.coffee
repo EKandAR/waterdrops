@@ -13,7 +13,7 @@ oa = ->
   process.env.TWITTER_CONSUMER_KEY,
   process.env.TWITTER_CONSUMER_SECRET,
   "1.0A",
-  "http://localhost:3000/auth/twitter/callback",
+  "http://tillthelast.drop:3000/auth/twitter/callback",
   "HMAC-SHA1")
 
 routes = (app) ->
@@ -58,7 +58,7 @@ routes = (app) ->
       twitTwo.stream 'user', (stream) ->
         #GLOBAL.io.sockets.emit "playerTwoReady"
         stream.on 'data', (data) ->
-          GLOBAL.io.sockets.emit "playerTwoTweet"
+          GLOBAL.io.sockets.emit "playerTwoTweet", { tweet: data }
         stream.on 'end', (response) ->
           console.log "end"
         stream.on 'destroy', (response) ->
@@ -79,7 +79,7 @@ routes = (app) ->
           #GLOBAL.io.sockets.emit "playerOneReady"
           twitP1.stream 'user', (stream) ->
             stream.on 'data', (data) ->
-              GLOBAL.io.sockets.emit "playerOneTweet"
+              GLOBAL.io.sockets.emit "playerOneTweet", { tweet: data }
             stream.on 'end', (response) ->
               console.log "end"
             stream.on 'destroy', (response) ->

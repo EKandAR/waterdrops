@@ -5,18 +5,10 @@ block head
   script(type='text/javascript', src="/js/game.js")
   script(type='text/javascript', src="/socket.io/socket.io.js")
   script(type='text/javascript')
-    var socket = io.connect('http://localhost')
-      , p1Ready = false
-      , p2Ready = false
-      , droppingP1 = false
-      , droppingP2 = false
+    var socket = io.connect('http://tillthelast.drop')
       , p1Q = 0
-      , p2Q = 0
-      , gameStart = false;
+      , p2Q = 0;
     window.go = false;
-
-    switchP1 = function() { return droppingP1 = !droppingP1 };
-    switchP2 = function() { return droppingP2 = !droppingP2 };
 
     dropper = function() {
       if (p1Q > 0) {
@@ -30,18 +22,19 @@ block head
     };
 
     socket.on('playerOneTweet', function (data) {
+       console.log(data);
        if (window.go) {
          p1Q++;
        }
     });
     socket.on('playerTwoTweet', function (data) {
+       console.log(data);
        if (window.go) {
          p2Q++;
        }
     });
 
     setInterval(dropper, 3000);
-
 
 block content
   #main-nav

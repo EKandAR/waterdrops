@@ -11,7 +11,7 @@
     showGo = function() {
       return $Go.fadeIn(500, function() {
         window.go = true;
-        return setTimeout(killGo, 3000);
+        return setTimeout(killGo, 2000);
       });
     };
     showReady = function() {

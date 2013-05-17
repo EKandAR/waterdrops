@@ -8,7 +8,7 @@ $(document).ready ->
   showGo = () ->
     $Go.fadeIn 500, ->
       window.go = true
-      setTimeout killGo, 3000
+      setTimeout killGo, 2000
 
   showReady = () ->
     $ready.fadeIn 500
