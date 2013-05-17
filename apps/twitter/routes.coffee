@@ -56,7 +56,7 @@ routes = (app) ->
     twitTwo.verifyCredentials (err, data) ->
       GLOBAL.playerTwo = data
       twitTwo.stream 'user', (stream) ->
-        GLOBAL.io.sockets.emit "playerTwoReady"
+        #GLOBAL.io.sockets.emit "playerTwoReady"
         stream.on 'data', (data) ->
           GLOBAL.io.sockets.emit "playerTwoTweet"
         stream.on 'end', (response) ->
@@ -76,7 +76,7 @@ routes = (app) ->
           access_token_key: reply.token
           access_token_secret: reply.secret
         twitP1.verifyCredentials (err, data) ->
-          GLOBAL.io.sockets.emit "playerOneReady"
+          #GLOBAL.io.sockets.emit "playerOneReady"
           twitP1.stream 'user', (stream) ->
             stream.on 'data', (data) ->
               GLOBAL.io.sockets.emit "playerOneTweet"

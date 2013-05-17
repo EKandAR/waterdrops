@@ -8,44 +8,51 @@ block head
     var socket = io.connect('http://localhost')
       , p1Ready = false
       , p2Ready = false
-      , window.go = false
+      , droppingP1 = false
+      , droppingP2 = false
+      , p1Q = 0
+      , p2Q = 0
       , gameStart = false;
+    window.go = false;
 
-    socket.on('playerOneReady', function (data) {
-      p1Ready = true;
-      if (p1Ready && p2Ready && window.go) {
-        gameStart = true; 
-       };
-    });
-    socket.on('playerTwoReady', function (data) {
-      p2Ready = true;
-      if (p1Ready && p2Ready && window.go) {
-        gameStart = true; 
-       };
-    });
+    switchP1 = function() { return droppingP1 = !droppingP1 };
+    switchP2 = function() { return droppingP2 = !droppingP2 };
+
+    dropper = function() {
+      if (p1Q > 0) {
+        p1Q--;
+        playerOneDrop(); 
+      }
+      if (p2Q > 0) {
+        p2Q--;
+        playerTwoDrop(); 
+      }
+    };
+
     socket.on('playerOneTweet', function (data) {
-      if (p1Ready && p2Ready && window.go) {
-        gameStart = true; 
-       };
-      // if (gameStart) {
-      //playerOneDrop(); 
-      // }
+       if (window.go) {
+         p1Q++;
+       }
     });
     socket.on('playerTwoTweet', function (data) {
-      if (p1Ready && p2Ready && window.go) {
-        gameStart = true; 
-       };
-      // if (gameStart) {
-      //playerTwoDrop(); 
-      // }
+       if (window.go) {
+         p2Q++;
+       }
     });
+
+    setInterval(dropper, 3000);
+
 
 block content
   #main-nav
-    h1= title
-    h1= "Welcome " + playerTwoName + "!!!"
+    h1#main-title= title
+    h1#player2-welcome= "Welcome " + playerTwoName + "!!!"
 
   #ready-prompt.game-prompt
     h1 Ready???
   #go-prompt.game-prompt
     h1 Go!!!
+
+  script(type='text/javascript')    
+    killP2 = function(){ $('#player2-welcome').fadeOut(300) };
+    $(document).ready(function(){ setTimeout(killP2, 2500)});

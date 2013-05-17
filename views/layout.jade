@@ -4,6 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+    // script(type='text/javascript', src='/js/plugins.js')    
     script(type='text/javascript', src='/js/raphael.js')    
     block head
 
@@ -23,5 +24,14 @@ html
     #msg
     block content    
     script(type='text/javascript', src='/js/script.js')    
-
-
+    script(type='text/javascript')    
+      mainLoginBlink = function () {
+        $('#login').delay(100).fadeTo(100,0.5).delay(100).fadeTo(100,1, mainLoginBlink);
+      }
+      mainTitleBlink = function () {
+        $('#main-title').delay(100).fadeTo(100,0.5).delay(100).fadeTo(100,1, mainTitleBlink);
+      }
+      $(document).ready(function(){
+        mainTitleBlink();
+        setTimeout(mainLoginBlink, 100);
+      });

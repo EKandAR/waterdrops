@@ -21,9 +21,9 @@ body {
   z-index: 100;
 }
 
-a {
+/* a {
   color: #00B7FF;
-}
+} */
 
 #waters {
   margin: 200px 0 0 0;
@@ -53,6 +53,18 @@ a {
 h1 {
   font-family: 'Gamegirl';
   color: red;
+}
+
+.button {
+  // padding: 5px 5px 5px 25px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  // border: 2px solid #42526C;
+  color:#fff;
+  text-decoration:none;
+  background-color: #0BB5FF;
+  padding: 10px;
 }
 
 .water {

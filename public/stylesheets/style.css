@@ -16,9 +16,9 @@ body {
 #canvas {
   z-index: 100; }
 
-a {
-  color: #00B7FF; }
-
+/* a {
+  color: #00B7FF;
+} */
 #waters {
   margin: 200px 0 0 0; }
 
@@ -44,6 +44,15 @@ a {
 h1 {
   font-family: 'Gamegirl';
   color: red; }
+
+.button {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #0BB5FF;
+  padding: 10px; }
 
 .water {
   background-image: url("/img/water-level-min.png");
