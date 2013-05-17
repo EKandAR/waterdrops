@@ -56,10 +56,15 @@ routes = (app) ->
       access_token_secret: req.query.secret
     twitTwo.verifyCredentials (err, data) ->
       GLOBAL.playerTwo = data
-      twitTwo.getHomeTimeline (err, data) ->
-        console.log "got home timeline player 2"
-        GLOBAL.io.sockets.emit "twitterConnected", { tweets: data }
-        p2Tweets = data
+      twitTwo.stream 'user', (stream) ->
+        GLOBAL.io.sockets.emit "playerTwoReady"
+        stream.on 'data', (data) ->
+          GLOBAL.io.sockets.emit "playerTwoTweet"
+        stream.on 'end', (response) ->
+          console.log "end"
+        stream.on 'destroy', (response) ->
+          console.log "destroyed"
+        setTimeout stream.destroy, 600000
       res.render "#{__dirname}/views/game",
         title: 'Till the Last Drop'
         stylesheet: 'index'
@@ -72,10 +77,21 @@ routes = (app) ->
           access_token_key: reply.token
           access_token_secret: reply.secret
         twitP1.verifyCredentials (err, data) ->
-          twitP1.getHomeTimeline (err, data) ->
-            console.log "got home timeline player 1"
-            p1Tweets = data
-            GLOBAL.io.sockets.emit "twitterConnected", { tweets: data }
+          GLOBAL.io.sockets.emit "playerOneReady"
+          twitP1.stream 'user', (stream) ->
+            stream.on 'data', (data) ->
+              GLOBAL.io.sockets.emit "playerOneTweet"
+            stream.on 'end', (response) ->
+              console.log "end"
+            stream.on 'destroy', (response) ->
+              console.log "destroyed"
+            setTimeout stream.destroy, 600000      
+
+# for REST API
+#          twitP1.getHomeTimeline (err, data) ->
+#            console.log "got home timeline player 1"
+#            p1Tweets = data
+#            GLOBAL.io.sockets.emit "twitterConnected", { tweets: data }
 
   # twitter oauth routes
   # #########################

@@ -6,10 +6,6 @@ block head
   script(type='text/javascript', src="/socket.io/socket.io.js")
   script(type='text/javascript')
     var socket = io.connect('http://localhost');
-    socket.on('news', function (data) {
-      console.log(data);
-      socket.emit('my other event', { my: 'data' });
-    });
     socket.on('twitterConnected', function (data) {
       // console.log(data);
     });
@@ -17,7 +13,6 @@ block head
 block content
   #main-nav
     h1= title
-    h1= "Welcome " + playerOneName + "!!!"
     h1= "Welcome " + playerTwoName + "!!!"
 
   #ready-prompt.game-prompt
