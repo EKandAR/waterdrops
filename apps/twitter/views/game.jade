@@ -1,6 +1,8 @@
 extends ../../../views/layout
 
 block head
+  link(rel='stylesheet', href='/stylesheets/game.css')
+  script(type='text/javascript', src="/js/game.js")
   script(type='text/javascript', src="/socket.io/socket.io.js")
   script(type='text/javascript')
     var socket = io.connect('http://localhost');
@@ -17,3 +19,8 @@ block content
     h1= title
     h1= "Welcome " + playerOneName + "!!!"
     h1= "Welcome " + playerTwoName + "!!!"
+
+  #ready-prompt.game-prompt
+    h1 Ready???
+  #go-prompt.game-prompt
+    h1 Go!!!

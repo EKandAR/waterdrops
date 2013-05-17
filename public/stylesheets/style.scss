@@ -40,6 +40,21 @@ a {
   height: 460px;
 }
 
+@font-face {
+  font-family: 'Gamegirl';
+  src: url("/fonts/Gamegirl/Gamegirl.eot");
+}
+@font-face {
+  font-family: 'Gamegirl';
+  src: url("/fonts/Gamegirl/Gamegirl.woff") format("woff"),
+  url('/fonts/Gamegirl/Gamegirl.svg#GamegirlClassic') format('svg');
+}
+
+h1 {
+  font-family: 'Gamegirl';
+  color: red;
+}
+
 .water {
     background-image: url("/img/water-level-min.png");   
     background-repeat: no-repeat;
