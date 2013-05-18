@@ -5,6 +5,7 @@ $(function(){
     , $water = $('.water:first')
     , $water2 = $('.water:last')
     , $end = $('#end-prompt')
+    , WIN = 8
     , drop1 = document.getElementById("drop1")
     , drop2 = document.getElementById("drop2")
     , drop3 = document.getElementById("drop3")
@@ -17,12 +18,12 @@ $(function(){
   }
   p1Overflow = function () {
     // animation function
-    
+    triggerp1overflow();
     setTimeout(redirect, 8000);
   }  
   p2Overflow = function () {
     // animation function
-    
+    triggerp2overflow();
     setTimeout(redirect, 8000);
   }
   endBlink = function () {
@@ -38,7 +39,7 @@ $(function(){
     }
   }
   moveP1Water = function() {
-    if (playerOneWtrLvl == 9) {
+    if (playerOneWtrLvl == WIN) {
       $water.animate({ 'margin-top': '-=50px', width: '+=12px'}, 25);
       window.clearInterval(window.iid);
       window.go = false;
@@ -54,7 +55,7 @@ $(function(){
     playerOneWtrLvl++;
   }
   moveP2Water = function() {   
-     if (playerTwoWtrLvl == 9) {
+     if (playerTwoWtrLvl == WIN) {
       $water2.animate({ 'margin-top': '-=50px', width: '+=12px'}, 25);
       window.clearInterval(window.iid);
       window.go = false;
@@ -92,5 +93,34 @@ $(function(){
     setTimeout(moveP2Water, 750);
     };
 
+  window.triggerp1overflow = function() { 
+    p1overflowDrop(); 
+    setTimeout(p1overflowDrop,300);
+    setTimeout(p1overflowDrop,600);
+  }
+
+    p1overflowDrop = function() {
+       var xcord = Math.floor(Math.random()*125+280).toString();
+      var drop = paper.path("M" + xcord + ",215s10,25,10,30a10,10,0,0,1,-20,0s10,-25,10,-30Z")
+      .attr({'fill': 'white', 'stroke-width': '10px', 'stroke': 'black'}).toBack();
+      drop.animate({path:"M" + xcord + "," + (document.height+30).toString() + "s10,25,10,30a10,10,0,0,1,-20,0s10,-25,10,-30Z"}, 750, '<', drop.hide);
+      var rand = sounds[Math.floor(Math.random() * sounds.length)]
+      rand.play();   
+    }
+
+  window.triggerp2overflow = function() { 
+    p2overflowDrop(); 
+    setTimeout(p2overflowDrop,300);
+    setTimeout(p2overflowDrop,600);
+  }
+
+    p2overflowDrop = function() {
+       var xcord = Math.floor(Math.random()*125+680).toString();
+      var drop = paper.path("M" + xcord + ",215s10,25,10,30a10,10,0,0,1,-20,0s10,-25,10,-30Z")
+      .attr({'fill': 'white', 'stroke-width': '10px', 'stroke': 'black'}).toBack();
+      drop.animate({path:"M" + xcord + "," + (document.height+30).toString() + "s10,25,10,30a10,10,0,0,1,-20,0s10,-25,10,-30Z"}, 750, '<', drop.hide);
+      var rand = sounds[Math.floor(Math.random() * sounds.length)]
+      rand.play();   
+    }
  });
 
