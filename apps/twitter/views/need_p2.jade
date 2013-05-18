@@ -8,8 +8,11 @@ block head
 block content
   #main-nav
     h1#main-title= title
-    h1= "Welcome " + playerOneName + "!!!"
     a#p2-login.login.button(href="/auth/twitter") PLAYER 2 LOGIN
+  #welcome-player 
+    #welcome-text
+      h2 Welcome
+      h2= playerOneName + "!!!"
 
   #need-prompt.game-prompt
     h1= "Waiting for player 2!!!"
@@ -20,5 +23,5 @@ block content
     }
     $(document).ready(function(){
         $('#need-prompt').fadeIn(200);
-        // waitBlink();
+        waitBlink();
       });

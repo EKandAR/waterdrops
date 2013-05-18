@@ -47,6 +47,30 @@ h1 {
   color: red;
   font-size: 36pt; }
 
+#welcome-text {
+  margin-left: auto;
+  margin-right: auto; }
+
+#need-prompt {
+  top: 200px !important; }
+
+h2 {
+  font-family: 'Gamegirl';
+  color: red;
+  font-size: 24pt !important; }
+
+#welcome-player {
+  position: absolute;
+  top: 460px;
+  left: 380px;
+  text-align: center; }
+
+#welcome-player-two {
+  position: absolute;
+  top: 460px;
+  left: 1034px;
+  text-align: center; }
+
 #p1-login {
   z-index: 110;
   position: absolute;
@@ -89,6 +113,14 @@ h1 {
 
 #won {
   text-align: center; }
+
+#go-prompt {
+  top: 250px !important;
+  left: 482px !important; }
+
+#ready-prompt {
+  top: 250px !important;
+  left: 482px !important; }
 
 #end-prompt {
   top: 250px !important;

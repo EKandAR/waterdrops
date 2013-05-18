@@ -38,8 +38,11 @@ block head
 block content
   #main-nav
     h1#main-title= title
-    h1#player2-welcome= "Welcome " + playerTwoName + "!!!"
+  #welcome-player-two
+    #welcome-text
+      h2 Welcome
+      h2= playerTwoName + "!!!"
 
   script(type='text/javascript')    
-    killP2 = function(){ $('#player2-welcome').fadeOut(300) };
+    killP2 = function(){ $('#welcome-player-two').fadeOut(300) };
     $(document).ready(function(){ setTimeout(killP2, 2500)});
