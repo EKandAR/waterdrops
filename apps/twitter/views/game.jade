@@ -40,14 +40,6 @@ block content
     h1#main-title= title
     h1#player2-welcome= "Welcome " + playerTwoName + "!!!"
 
-  #ready-prompt.game-prompt
-    h1 Ready???
-  #go-prompt.game-prompt
-    h1 Go!!!
-  #end-prompt.game-prompt
-    h1 Congratulations!!!
-    h1 You Won!!!!
-
   script(type='text/javascript')    
     killP2 = function(){ $('#player2-welcome').fadeOut(300) };
     $(document).ready(function(){ setTimeout(killP2, 2500)});

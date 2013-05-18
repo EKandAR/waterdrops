@@ -21,7 +21,16 @@ html
             .glass.player-two
               .water.player-two
 
-    #msg
+    #msg  
+    #ready-prompt.game-prompt
+      h1 Ready???
+    #go-prompt.game-prompt
+      h1 Go!!!
+    #end-prompt.game-prompt
+      h1 Congratulations!!!
+      h1#won You Won!!!!
+
+
     block content    
     | <audio id="drop1" src="/sound/drop3.wav" preload="auto"></audio>
     | <audio id="drop2" src="/sound/drop2.wav" preload="auto"></audio>
@@ -35,6 +44,6 @@ html
         $('#main-title').delay(100).fadeTo(100,0).delay(100).fadeTo(100,1, mainTitleBlink);
       }
       $(document).ready(function(){
-        mainTitleBlink();
-        setTimeout(mainLoginBlink, 100);
+        // mainTitleBlink();
+        // setTimeout(mainLoginBlink, 100);
       });

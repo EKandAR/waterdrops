@@ -26,7 +26,13 @@ body {
 } */
 
 #waters {
-  margin: 200px 0 0 0;
+  margin: 314px 0 0 0;
+}
+#player-one {
+  margin-left: 400px;
+}
+#player-two {
+  margin-left: 300px;
 }
 .player-blocking {
   display: inline-block;
@@ -59,14 +65,16 @@ h1 {
 #p1-login {
   z-index: 110;
   position: absolute;
-  top: 200px;
-  left: 250px;
+  top: 501px;
+  left: 553px;
+  width: 111px;
 }
 #p2-login {
   z-index: 110;
   position: absolute;
-  top: 200px;
-  left: 641px;
+  top: 501px;
+  left: 1136px;
+  width: 111px;
 }
 
 .button {
@@ -86,7 +94,7 @@ h1 {
     background-image: url("/img/water-level-min.png");   
     background-repeat: no-repeat;
     //opacity: .65;
-    margin-top: 369px;
+    margin-top: 359px;
     margin-left: auto;
     margin-right: auto;
     width: 155px;
@@ -98,6 +106,13 @@ h1 {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+}
+#won {
+  text-align: center;
+}
+#end-prompt {
+  top: 250px !important;
+  left: 482px !important;
 }
 .game-prompt {
   display: none;
