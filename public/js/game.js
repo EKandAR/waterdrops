@@ -6,7 +6,8 @@
     $ready = $('#ready-prompt');
     $Go = $('#go-prompt');
     killGo = function() {
-      return $Go.fadeOut(500);
+      $Go.fadeOut(500);
+      return $('#main-title').remove();
     };
     showGo = function() {
       return $Go.fadeIn(500, function() {
@@ -22,8 +23,8 @@
         return setTimeout(showGo, 500);
       });
     };
-    setTimeout(showReady, 1000);
-    return setTimeout(killReady, 3000);
+    setTimeout(showReady, 3000);
+    return setTimeout(killReady, 5000);
   });
 
 }).call(this);

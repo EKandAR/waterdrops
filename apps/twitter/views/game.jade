@@ -11,6 +11,7 @@ block head
     window.go = false;
 
     dropper = function() {
+    if (window.go){  
       if (p1Q > 0) {
         p1Q--;
         playerOneDrop(); 
@@ -19,22 +20,20 @@ block head
         p2Q--;
         playerTwoDrop(); 
       }
-    };
+       }    };
 
     socket.on('playerOneTweet', function (data) {
-       console.log(data);
        if (window.go) {
          p1Q++;
        }
     });
     socket.on('playerTwoTweet', function (data) {
-       console.log(data);
        if (window.go) {
          p2Q++;
        }
     });
 
-    setInterval(dropper, 3000);
+    window.iid = setInterval(dropper, 3000);
 
 block content
   #main-nav
@@ -45,6 +44,9 @@ block content
     h1 Ready???
   #go-prompt.game-prompt
     h1 Go!!!
+  #end-prompt.game-prompt
+    h1 Congratulations!!!
+    h1 You Won!!!!
 
   script(type='text/javascript')    
     killP2 = function(){ $('#player2-welcome').fadeOut(300) };

@@ -4,6 +4,7 @@ $(document).ready ->
 
   killGo = () ->
     $Go.fadeOut 500
+    $('#main-title').remove()
 
   showGo = () ->
     $Go.fadeIn 500, ->
@@ -17,5 +18,5 @@ $(document).ready ->
     $ready.fadeOut 500, ->
       setTimeout showGo, 500
 
-  setTimeout showReady, 1000
-  setTimeout killReady, 3000
+  setTimeout showReady, 3000
+  setTimeout killReady, 5000
