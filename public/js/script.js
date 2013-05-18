@@ -38,7 +38,8 @@ $(function(){
     }
   }
   moveP1Water = function() {
-    if (playerOneWtrLvl == 8) {
+    if (playerOneWtrLvl == 9) {
+      $water.animate({ 'margin-top': '-=50px', width: '+=12px'}, 25);
       window.clearInterval(window.iid);
       window.go = false;
       showEnd(0);
@@ -53,7 +54,8 @@ $(function(){
     playerOneWtrLvl++;
   }
   moveP2Water = function() {   
-     if (playerTwoWtrLvl == 8) {
+     if (playerTwoWtrLvl == 9) {
+      $water2.animate({ 'margin-top': '-=50px', width: '+=12px'}, 25);
       window.clearInterval(window.iid);
       window.go = false;
       showEnd(1);

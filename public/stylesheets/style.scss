@@ -99,6 +99,16 @@ h1 {
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
+.game-prompt {
+  display: none;
+  position: absolute;
+  z-index: 110;
+  left: 400px;
+  top: 300px;
+  h1 {
+    font-size: 36pt;
+  }
+}
 /* OLD STUFF
 .water-container {
     background: rgba( 0, 0, 0, 0.10);

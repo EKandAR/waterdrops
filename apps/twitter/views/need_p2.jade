@@ -10,3 +10,15 @@ block content
     h1#main-title= title
     h1= "Welcome " + playerOneName + "!!!"
     a#p2-login.login.button(href="/auth/twitter") PLAYER 2 LOGIN
+
+  #need-prompt.game-prompt
+    h1= "Waiting for player 2!!!"
+
+  script(type='text/javascript')    
+    waitBlink = function () {
+      $('#need-prompt').delay(100).fadeTo(100,0).delay(100).fadeTo(100,1, waitBlink);
+    }
+    $(document).ready(function(){
+        $('#need-prompt').fadeIn(200);
+        waitBlink();
+      });

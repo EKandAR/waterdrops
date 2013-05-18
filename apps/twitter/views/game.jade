@@ -1,7 +1,7 @@
 extends ../../../views/layout
 
 block head
-  link(rel='stylesheet', href='/stylesheets/game.css')
+  // link(rel='stylesheet', href='/stylesheets/game.css')
   script(type='text/javascript', src="/js/game.js")
   script(type='text/javascript', src="/socket.io/socket.io.js")
   script(type='text/javascript')
@@ -48,7 +48,6 @@ block content
     h1 Congratulations!!!
     h1 You Won!!!!
 
-  script(type='text/javascript', src='/js/script.js')    
   script(type='text/javascript')    
     killP2 = function(){ $('#player2-welcome').fadeOut(300) };
     $(document).ready(function(){ setTimeout(killP2, 2500)});
